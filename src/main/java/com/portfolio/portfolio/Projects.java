@@ -1,6 +1,6 @@
 package com.portfolio.portfolio;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
@@ -9,7 +9,7 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbParti
 public class Projects {
     private Long project_id;
     private String description;
-    private ArrayList<String> skills;
+    private List<String> skills;
     private String title;
 
     @DynamoDbPartitionKey
@@ -27,10 +27,10 @@ public class Projects {
         this.description = description;
     }
 
-    public ArrayList<String> getSkills() {
+    public List<String> getSkills() {
         return skills;
     }
-    public void setSkills(ArrayList<String> skills) {
+    public void setSkills(List<String> skills) {
         this.skills = skills;
     }
 
