@@ -19,7 +19,7 @@ public class UsersRepository {
         users.putItem(user);
     }
 
-    public Users getUserById(Long id) {
+    public Users getUserById(String id) {
         return users.getItem(Key.builder().partitionValue(id).build());
     }
 
@@ -28,7 +28,7 @@ public class UsersRepository {
         return null;
     }
 
-    public void deleteUserById(Long id) {
+    public void deleteUserById(String id) {
         users.deleteItem(Key.builder().partitionValue(id).build());
     }
 
