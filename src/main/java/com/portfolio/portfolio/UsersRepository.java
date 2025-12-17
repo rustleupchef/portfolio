@@ -23,6 +23,11 @@ public class UsersRepository {
         return users.getItem(Key.builder().partitionValue(id).build());
     }
 
+    public Users getUserByUsername(String username) {
+        
+        return null;
+    }
+
     public void deleteUserById(Long id) {
         users.deleteItem(Key.builder().partitionValue(id).build());
     }
