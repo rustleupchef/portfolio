@@ -36,7 +36,7 @@ public class PortfolioController {
 
     @GetMapping("/portfolio")
     public String mainPage() {
-        return "index";
+        return "main";
     }
 
     @GetMapping("/signup")
@@ -88,4 +88,29 @@ public class PortfolioController {
 
         return new ResponseMessage("error", "invalid credentials");
     }
+
+    @GetMapping("/create")
+    public String createPage(HttpSession session) {
+        Users user = (Users) session.getAttribute("user");
+        if (user == null || !user.isRole()) {
+            return "redirect:/login";
+        }
+        return "create";
+    }
+
+    @PostMapping("/create")
+    @ResponseBody public ResponseMessage create(@RequestBody ProjectRequest request, HttpSession session) {
+        Users user = (Users) session.getAttribute("user");
+        if (user == null || !user.isRole()) {
+            return new ResponseMessage("error", "this user does not have permissions to make such requests");
+        }
+
+        Projects project = new Projects();
+        project.setTitle(request.getTitle());
+        project.setDescription(request.getDescription());
+        project.setSkills(request.getSkills());
+
+        projectsService.saveProject(project);
+        return new ResponseMessage("success", "SUCCESS");
+    } 
 }

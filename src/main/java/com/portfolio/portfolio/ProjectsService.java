@@ -1,5 +1,7 @@
 package com.portfolio.portfolio;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,9 @@ public class ProjectsService {
     private ProjectsRepository projectsRepository;
 
     public void saveProject(Projects project) {
+        if (project.getProject_id() == null) {
+            project.setProject_id(UUID.randomUUID().getMostSignificantBits());
+        }
         projectsRepository.saveProject(project);
     }
 

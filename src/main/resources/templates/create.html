@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create Project</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="create/styles.css">
+        <script src="create/script.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Create a Project</h2>
+            <input type="text" placeholder="Title" id="title"/>
+            <textarea placeholder="Description" id="description"></textarea>
+            <ul id="skills"></ul>
+            <div class="row-container">
+                <input type="text" placeholder="skill" id="skill">
+                <button onclick="addSkill()">Add</button>
+            </div>
+            <button onclick="create()">Create</button>
+        </div>
+    </body>
+</html>
