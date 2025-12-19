@@ -3,8 +3,10 @@ package com.portfolio.portfolio;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.password4j.Hash;
@@ -112,5 +114,25 @@ public class PortfolioController {
 
         projectsService.saveProject(project);
         return new ResponseMessage("success", "SUCCESS");
-    } 
+    }
+    
+    @GetMapping("/delete")
+    public String deletePage(HttpSession session) {
+        Users user = (Users) session.getAttribute("user");
+        if (user == null || !user.isRole()) {
+            return "redirect:/login";
+        }
+        return "delete";
+    }
+
+    @PostMapping("/delete")
+    @ResponseBody public ResponseMessage delete(@RequestParam Long id, HttpSession session) {
+        Users user = (Users) session.getAttribute("user");
+        if (user == null || !user.isRole()) {
+            return new ResponseMessage("error", "this user does not have permissions to make such requests");
+        }
+
+        projectsService.deleteProject(id);
+        return new ResponseMessage("success", "SUCCESS");
+    }
 }
