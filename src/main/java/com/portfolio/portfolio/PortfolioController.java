@@ -136,4 +136,29 @@ public class PortfolioController {
         projectsService.deleteProject(id);
         return new ResponseMessage("success", "SUCCESS");
     }
+
+    @GetMapping("/contact")
+    public String contactPage(HttpSession session) {
+        Users user = (Users) session.getAttribute("user");
+        if (user == null || user.isRole()) {
+            return "redirect:/login";
+        }
+        return "contact";
+    }
+
+    @PostMapping("/contact")
+    @ResponseBody public ResponseMessage contact(@RequestBody TicketRequest request, HttpSession session) {
+        Users user = (Users) session.getAttribute("user");
+        if (user == null || user.isRole()) {
+            return new ResponseMessage("error", "this user does not have permissions to make such requests");
+        }
+
+        Tickets ticket = new Tickets();
+        ticket.setUser(user.getUsername());
+        ticket.setSubject(request.getSubject());
+        ticket.setMessage(request.getMessage());
+
+        ticketsService.saveTicket(ticket);
+        return new ResponseMessage("success", "SUCCESS");
+    }
 }

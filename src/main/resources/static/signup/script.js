@@ -9,6 +9,7 @@ function signup() {
 
     if (password.length < 5) {
         alert("Please enter a password of 5 or greater length");
+        return;
     }
 
     const xhr = new XMLHttpRequest();
