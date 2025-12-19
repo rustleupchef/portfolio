@@ -3,7 +3,6 @@ package com.portfolio.portfolio;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,10 +18,12 @@ public class PortfolioController {
     
     private final UsersService usersService;
     private final ProjectsService projectsService;
+    private final TicketsService ticketsService;
 
-    public PortfolioController(UsersService usersService, ProjectsService projectsService) {
+    public PortfolioController(UsersService usersService, ProjectsService projectsService, TicketsService ticketsService) {
         this.usersService = usersService;
         this.projectsService = projectsService;
+        this.ticketsService = ticketsService;
     }
 
     @GetMapping("/grab_projects")
