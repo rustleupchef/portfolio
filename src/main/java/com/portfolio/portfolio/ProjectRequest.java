@@ -6,6 +6,7 @@ public class ProjectRequest {
     private String title;
     private String description;
     private List<String> skills;
+    private String image;
 
     public String getTitle() {
         return title;
@@ -29,5 +30,13 @@ public class ProjectRequest {
 
     public void setSkills(List<String> skills) {
         this.skills = skills;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

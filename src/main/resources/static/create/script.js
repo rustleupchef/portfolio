@@ -13,11 +13,13 @@ function create() {
 
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
+    const image = document.getElementById("image").value;
 
     const data = {
         title : title,
         description : description,
-        skills : skillsList
+        skills : skillsList,
+        image : image
     };
 
     const xhr = new XMLHttpRequest();

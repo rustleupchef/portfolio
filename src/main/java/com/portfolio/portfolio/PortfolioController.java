@@ -117,7 +117,11 @@ public class PortfolioController {
         project.setTitle(request.getTitle());
         project.setDescription(request.getDescription());
         project.setSkills(request.getSkills());
-
+        project.setImg(
+            (request.getImage() == null || request.getImage().equals("")) 
+                ? "https://raw.githubusercontent.com/rustleupchef/images/refs/heads/main/Frame%2031.png" 
+                : request.getImage()
+        );
         projectsService.saveProject(project);
         return new ResponseMessage("success", "SUCCESS");
     }
