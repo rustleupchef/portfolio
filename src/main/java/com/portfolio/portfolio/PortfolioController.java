@@ -42,6 +42,11 @@ public class PortfolioController {
         return "main";
     }
 
+    @PostMapping("/projects")
+    @ResponseBody public Iterable<Projects> projects(HttpSession session) {
+        return projectsService.getAllProjects();
+    }
+
     @GetMapping("/signup")
     public String signupPage(HttpSession session) {
         if (session.getAttribute("user") != null) {
@@ -160,5 +165,14 @@ public class PortfolioController {
 
         ticketsService.saveTicket(ticket);
         return new ResponseMessage("success", "SUCCESS");
+    }
+
+    @GetMapping("/requests")
+    public String requestsPage(HttpSession session) {
+        Users user = (Users) session.getAttribute("user");
+        if (user == null || !user.isRole()) {
+            return "redirect:/login";
+        }
+        return "requests";
     }
 }

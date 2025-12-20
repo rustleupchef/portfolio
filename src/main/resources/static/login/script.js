@@ -9,6 +9,7 @@ function login() {
 
     if (password.length < 1) {
         alert("Please enter a password");
+        return;
     }
 
     const xhr = new XMLHttpRequest();
