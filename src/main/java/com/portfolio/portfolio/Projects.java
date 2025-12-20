@@ -4,9 +4,12 @@ import java.util.List;
 
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
+import tools.jackson.databind.annotation.JsonSerialize;
+import tools.jackson.databind.ser.std.ToStringSerializer;
 
 @DynamoDbBean
 public class Projects {
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long project_id;
     private String description;
     private List<String> skills;

@@ -47,6 +47,16 @@ public class PortfolioController {
         return projectsService.getAllProjects();
     }
 
+    @GetMapping("/project")
+    public String projectPage(HttpSession session) {
+        return "project";
+    }
+
+    @PostMapping("/project")
+    @ResponseBody Projects project(@RequestParam String id, HttpSession session) {
+        return projectsService.getProject(Long.parseLong(id));
+    }
+
     @GetMapping("/signup")
     public String signupPage(HttpSession session) {
         if (session.getAttribute("user") != null) {
