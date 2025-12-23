@@ -7,11 +7,21 @@ window.onload = function() {
             const projects = JSON.parse(xhr.responseText);
             for (let project of projects) {
                 const projectDiv = document.createElement("div");
-                projectDiv.innerText = project.title;
                 projectDiv.className = "project-box";
                 projectDiv.onclick = function() {
                     location.assign("/project?id=" + encodeURIComponent(project.project_id));
                 }
+
+                const image = document.createElement("img");
+                image.src = project.img;
+
+                const title = document.createElement("h2");
+                title.innerText = project.title;
+                title.className = "libre-bodoni-regular";
+
+                projectDiv.appendChild(image);
+                projectDiv.appendChild(title);
+
                 container.appendChild(projectDiv);
             }
         }
