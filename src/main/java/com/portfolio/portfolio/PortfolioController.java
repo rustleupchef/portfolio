@@ -226,4 +226,9 @@ public class PortfolioController {
         ticketsService.deleteTicket(Long.parseLong(id));
         return new ResponseMessage("success", "SUCCESS");
     }
+
+    @GetMapping("/about")
+    public String aboutPage() {
+        return "about";
+    }
 }

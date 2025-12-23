@@ -1,0 +1,112 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    color: #FBFBFE;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    background-color: #362E2E;
+    min-height: 100vh;
+    font-family: "Life Savers", serif;
+}
+
+a {
+    text-decoration: none;
+    color: #FBFBFE;
+    font-family: "Life Savers", serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.top-bar {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 8.5vh;
+    border-bottom: 1px solid #674E4E;
+}
+
+.top-bar .left, .right {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.left, .right h2, a {
+    margin-right: 20px;
+    margin-left: 30px;
+}
+
+.container {
+    position: absolute;
+    background-color: #413535;
+    width: 80vw;
+    height: 91.5vh;
+    top: 8.5vh;
+    z-index: -1;
+    justify-items: center;
+}
+
+.container img {
+    float: left;
+    max-width: 25%;
+    margin: 8% 0 0 8%;
+    justify-self: center;
+}
+
+.container div {
+    float: right;
+    margin: 8% 8% 0 0;
+    justify-self: center;
+    max-width: 40%;
+}
+
+.container div h2 {
+    font-size: 40px;
+}
+
+.container div p {
+    font-size: 30px;
+    word-wrap: break-word;
+}
+
+
+.life-savers-regular {
+  font-family: "Life Savers", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.life-savers-bold {
+  font-family: "Life Savers", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.life-savers-extrabold {
+  font-family: "Life Savers", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.libre-bodoni-regular {
+  font-family: "Libre Bodoni", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
