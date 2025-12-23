@@ -198,4 +198,32 @@ public class PortfolioController {
         }
         return ticketsService.getAllTickets();
     }
+
+    @GetMapping("/request")
+    public String requestPage(HttpSession session) {
+        Users user = (Users) session.getAttribute("user");
+        if (user == null || !user.isRole()) {
+            return "redirect:/login";
+        }
+        return "request";
+    }
+
+    @PostMapping("/request")
+    @ResponseBody public Tickets request(@RequestParam String id, HttpSession session) {
+        Users user = (Users) session.getAttribute("user");
+        if (user == null || !user.isRole()) {
+            return null;
+        }
+        return ticketsService.getTicket(Long.parseLong(id));
+    }
+
+    @PostMapping("/resolve")
+    @ResponseBody public ResponseMessage resolve(@RequestParam String id, HttpSession session) {
+        Users user = (Users) session.getAttribute("user");
+        if (user == null || !user.isRole()) {
+            return new ResponseMessage("error", "user doesn't have permissions for usch actions");
+        }
+        ticketsService.deleteTicket(Long.parseLong(id));
+        return new ResponseMessage("success", "SUCCESS");
+    }
 }
