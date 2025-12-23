@@ -1,50 +1,124 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', sans;
     color: #FBFBFE;
 }
 
 body {
     display: grid;
     place-items: center;
-    background-color: #2B2A33;
+    background-color: #362E2E;
     min-height: 100vh;
+    font-family: "Life Savers", serif;
+}
+
+a {
+    text-decoration: none;
+    color: #FBFBFE;
+    font-family: "Life Savers", serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.top-bar {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 8.5vh;
+    border-bottom: 1px solid #674E4E;
+}
+
+.top-bar .left, .right {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.left, .right h2, a {
+    margin-right: 20px;
+    margin-left: 30px;
 }
 
 .container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70vw;
+    height: 85vh;
+    top: 15vh;
+}
+
+.request-box {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 40vw;
-    height: 60vh;
-    background-color: #1C1B22;
+    background-color: white;
+    color: black;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border: none;
+    margin: 2%;
+    width: 18%;
+    height: 35%;
     text-align: center;
 }
 
-.container button {
-    background-color: #42414D;
+.request-box h2 {
+    margin: 40px;
+}
+
+.request-box div {
+    height: 60%;
+    width: 100%;
+    margin: 0;
+    background-color: #413535;
     color: #FBFBFE;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    border: none;
+    font-family: "Libre Bodoni", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 25px;
+    padding: 30% 0 30% 0;
 }
 
-.container input, button, h2 {
-    height: 10%;
-    width: 50%;
-    padding: 5px;
-    margin: 2%;
-}
-
-.container h2 {
-    font-weight: 100;
-}
-
-.container input{
-    width: 48%;
-}
-
-.container button:hover {
+.request-box:hover {
     border: 2px solid #0A84FF;
+}
+
+
+.life-savers-regular {
+  font-family: "Life Savers", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.life-savers-bold {
+  font-family: "Life Savers", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.life-savers-extrabold {
+  font-family: "Life Savers", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.libre-bodoni-regular {
+  font-family: "Libre Bodoni", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
 }

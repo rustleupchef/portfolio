@@ -189,4 +189,13 @@ public class PortfolioController {
         }
         return "requests";
     }
+
+    @PostMapping("/requests")
+    @ResponseBody public Iterable<Tickets> requests(HttpSession session) {
+        Users user = (Users) session.getAttribute("user");
+        if (user == null || !user.isRole()) {
+            return null;
+        }
+        return ticketsService.getAllTickets();
+    }
 }
